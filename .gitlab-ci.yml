@@ -1,0 +1,27 @@
+image: docker:latest
+#image: docker:dind
+#image: docker:latest
+
+# When using dind, it's wise to use the overlayfs driver for
+# improved performance.
+variables:
+  DOCKER_DRIVER: overlay2
+
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+
+build job:
+  stage: build
+  script:
+  #- TMPTAG="1.6.0-beta.0-alpine"
+  - TMPTAG="1.5.0-alpine"
+  - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
+  - echo "docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG"
+  - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG
+  - docker push $CI_REGISTRY_IMAGE:$TMPTAG
+  - docker push $CI_REGISTRY_IMAGE:latest
+  
