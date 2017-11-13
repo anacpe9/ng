@@ -1,5 +1,7 @@
 ## this project was forked by _*[cha/nodetestplat](https://lab.er.co.th/cha/nodetestplat)*_ project
 
+Angular cli - alpine base, for development process.
+
 ```
 +-- alpine:3.6 (3.962 MB)                                ===========> official image
     |
