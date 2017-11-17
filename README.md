@@ -1,21 +1,27 @@
-## this project was forked by _*[cha/nodetestplat](https://lab.er.co.th/cha/nodetestplat)*_ project
+# this project was forked from _*[cha/nodetestplat](https://lab.er.co.th/cha/nodetestplat)*_ project
 
 Angular cli - alpine base, for development process.
+used in Gitlab CI/CD.
 
-```
+```text
 +-- alpine:3.6 (3.962 MB)                                ===========> official image
     |
-    +-- node:9.0.0-alpine (64.64 MB)                     ===========> official image
+    +-- node:9.2.0-alpine (64.64 MB)                     ===========> official image
     |   |
-    |   +-- ops/ng:1.6.0-beta.0-alpine (108 MB)            ===========> optional ***
-    |   `-- ops/ng:1.5.0-alpine (108 MB)                 ===========> this project ***
+    |   +-- ops/ng:1.6.0-beta.2-alpine (108 MB)          ===========> optional ***
+    |   `-- ops/ng:1.5.2-alpine (108 MB)                 ===========> this project ***
     |       |
-    |      (+)-- ops/ng-testplat:1.5.0-alpine (285 MB)   ===========> for ng e2e and unit testing
+    |      (+)-- ops/ng-testplat:1.5.2-alpine (285 MB)   ===========> for ng e2e and unit testing
     |       |
     `------ ops/e2e-testplat:57-alpine (181 MB)          ===========> (Optional for other projects)
 ```
 
-```
+| Image           | base-0 image      | base-1 image |
+| --------------- | ----------------- | ------------ |
+| ng:1.5.2-alpine | node:9.2.0-alpine | alpine:3.6   |
+| ng:1.5.0-alpine | node:9.0.0-alpine | alpine:3.6   |
+
+```text
 // with @angular/cli@1.5.*
 +-- .angular-cli.json
     |
@@ -38,7 +44,7 @@ Angular cli - alpine base, for development process.
         |   +-- app[1].platform: "server";
         |   +-- app[1].main: "main.server.ts"
         |   +-- app[1].tsconfig: "tsconfig.server.json"
-        |   `-- delete app[1].polyfills        
+        |   `-- delete app[1].polyfills
         +-- (Step 4:) Building the bundle
         |   +-- ng build --prod
         |   `-- ng build --prod --app=1
@@ -46,5 +52,4 @@ Angular cli - alpine base, for development process.
             +-- echo -e "const main_path='${ls dist-server/main.+.bundle.js}';" > ssr.js
             +-- cat ssr-pre.js >> ssr.js
             `-- node ssr.js
-        
 ```

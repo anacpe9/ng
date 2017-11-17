@@ -17,11 +17,11 @@ before_script:
 build job:
   stage: build
   script:
-  - TMPTAG="1.6.0-beta.2-alpine"
-  #- TMPTAG="1.5.0-alpine"
+  #- TMPTAG="1.6.0-beta.2-alpine"
+  - TMPTAG="1.5.2-alpine"
   - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
   - echo "docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG"
   - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
-  #- docker push $CI_REGISTRY_IMAGE:latest
+  - docker push $CI_REGISTRY_IMAGE:latest
   
