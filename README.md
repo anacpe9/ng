@@ -3,6 +3,8 @@
 Angular cli - alpine base, for development process.
 used in Gitlab CI/CD.
 
+## docker-image dependencies graph
+
 ```text
 +-- alpine:3.6 (3.962 MB)                                ===========> official image
     |
