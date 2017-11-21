@@ -6,20 +6,21 @@ used in Gitlab CI/CD.
 ## docker-image dependencies graph
 
 ```text
-+-- alpine:3.6 (3.962 MB)                                ===========> official image
++-- alpine:3.6 (3.962 MB)                                                         ===========> official image
     |
-    +-- node:9.2.0-alpine (64.64 MB)                     ===========> official image
+    +-- node:9.2.0-alpine (64.64 MB)                                              ===========> official image
     |   |
-    |   +-- ops/ng:1.6.0-beta.2-alpine (108 MB)          ===========> optional ***
-    |   `-- ops/ng:1.5.2-alpine (108 MB)                 ===========> this project ***
+    |   +-- registry.gitlab.com/cha-node/ng:1.6.0-beta.2-alpine (108 MB)          ===========> optional ***
+    |   `-- registry.gitlab.com/cha-node/ng:1.5.3-alpine (108 MB)                 ===========> this project ***
     |       |
-    |      (+)-- ops/ng-testplat:1.5.2-alpine (285 MB)   ===========> for ng e2e and unit testing
+    |      (+)-- registry.gitlab.com/cha-node/ng-testplat:1.5.3-alpine (285 MB)   ===========> for ng e2e and unit testing
     |       |
-    `------ ops/e2e-testplat:57-alpine (181 MB)          ===========> (Optional for other projects)
+    `------ registry.gitlab.com/cha-node/e2e-testplat:57-alpine (181 MB)          ===========> (Optional for other projects)
 ```
 
 | Image           | base-0 image      | base-1 image |
 | --------------- | ----------------- | ------------ |
+| ng:1.5.3-alpine | node:9.2.0-alpine | alpine:3.6   |
 | ng:1.5.2-alpine | node:9.2.0-alpine | alpine:3.6   |
 | ng:1.5.0-alpine | node:9.0.0-alpine | alpine:3.6   |
 

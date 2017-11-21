@@ -18,7 +18,7 @@ build job:
   stage: build
   script:
   #- TMPTAG="1.6.0-beta.2-alpine"
-  - TMPTAG="1.5.2-alpine"
+  - TMPTAG="1.5.3-alpine"
   - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
   - echo "docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG"
   - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG
