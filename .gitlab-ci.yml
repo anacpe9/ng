@@ -1,5 +1,4 @@
-image: docker:latest
-#image: docker:dind
+image: docker:git
 #image: docker:latest
 
 # When using dind, it's wise to use the overlayfs driver for
@@ -10,18 +9,68 @@ variables:
 services:
   - docker:dind
 
+stages:
+  - build-and-deploy
+  - git-push-to-mirror
+
 before_script:
   - docker info
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
 
-build job:
-  stage: build
+Docker build:
+  stage: build-and-deploy
+  variables:
+    DOCKERHUB_REGISTRY: "https://index.docker.io/v1/"
+    DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/ng"
+  only:
+    - master
   script:
   #- TMPTAG="1.6.0-rc.1-alpine"
   - TMPTAG="1.6.1-alpine"
-  - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
-  - echo "docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG"
-  - docker tag $CI_REGISTRY_IMAGE:latest $CI_REGISTRY_IMAGE:$TMPTAG
+  - >-
+    docker build --pull
+    -t $CI_REGISTRY_IMAGE:$TMPTAG
+    -t $CI_REGISTRY_IMAGE:latest
+    -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+    -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
+    .
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:latest
-  
+  - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD $DOCKERHUB_REGISTRY
+  - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+  - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
+
+.job_sshpushtemplate: &sshpush
+  before_script:
+    - which ssh-agent || (apk add --no-cache --update openssh-client)
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - $([[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config) 
+    # - ssh-keyscan -H 'bitbucket.org' >> ~/.ssh/known_hosts
+
+Github Mirror:
+  <<: *sshpush
+  stage: git-push-to-mirror
+  variables:
+    GITHUB_REPO: "github.com:anacpe9/ng.git"
+  only:
+    - master
+  script:
+    - echo "$GITHUB_SSH_PRIVATE_KEY" | ssh-add -
+    - ssh-add -l
+    - git push --mirror git@$GITHUB_REPO
+    - git push git@$GITHUB_REPO HEAD:master
+
+Bitbucket Mirror:
+  <<: *sshpush
+  stage: git-push-to-mirror
+  variables:
+    BITBUCKET_REPO: "bitbucket.org:anacpe9/ng.git"
+  only:
+    - master
+  script:
+    - echo "$BITBUCKET_SSH_PRIVATE_KEY" | ssh-add -
+    - ssh-add -l
+    - git push --mirror git@$BITBUCKET_REPO
+    - git push git@$BITBUCKET_REPO HEAD:master
+    

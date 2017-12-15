@@ -60,3 +60,13 @@ used in Gitlab CI/CD.
             +-- cat ssr-pre.js >> ssr.js
             `-- node ssr.js
 ```
+
+## Source Repository
+
+- [**cha-node/ng | Gitlab**](https://gitlab.com/cha-node/ng) - main repo.
+- [anacpe9/ng | Github](https://github.com/anacpe9/ng) - mirror.
+- [anacpe9/ng | Bitbucket](https://bitbucket.org/anacpe9/ng) - mirror.
+
+## License
+
+[MIT](LICENSE)
