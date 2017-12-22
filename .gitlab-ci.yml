@@ -26,7 +26,7 @@ Docker build:
     - master
   script:
   #- TMPTAG="1.6.0-rc.1-alpine"
-  - TMPTAG="1.6.1-alpine"
+  - TMPTAG="1.6.2-alpine"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
@@ -34,6 +34,7 @@ Docker build:
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
     .
+  - docker images
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:latest
   - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD $DOCKERHUB_REGISTRY
