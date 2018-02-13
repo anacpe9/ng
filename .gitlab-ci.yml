@@ -25,8 +25,8 @@ Docker build:
   only:
     - master
   script:
-  - TMPTAG="1.7.0-rc.0-alpine"
-  #- TMPTAG="1.6.7-alpine"
+  #- TMPTAG="1.7.0-rc.0-alpine"
+  - TMPTAG="1.6.8-alpine"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
