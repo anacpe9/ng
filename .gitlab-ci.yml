@@ -26,7 +26,7 @@ Docker build:
     - master
   script:
   #- TMPTAG="1.7.0-rc.0-alpine"
-  - TMPTAG="1.6.8-alpine"
+  - TMPTAG="1.7.0-alpine"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
@@ -42,6 +42,7 @@ Docker build:
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
 
 .job_sshpushtemplate: &sshpush
+  image: anacha/openssh-client
   before_script:
     - which ssh-agent || (apk add --no-cache --update openssh-client)
     - eval $(ssh-agent -s)
