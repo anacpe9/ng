@@ -10,7 +10,7 @@ used in Gitlab CI/CD.
     |
     +-- node:9.6.1-alpine (64.64 MB)                        ====> official image
     |   |
-    |   +-- anacha/ng:6.0.0-beta.3-alpine (108 MB)            ====> optional ***
+    |   +-- anacha/ng:6.0.0-beta.4-alpine (108 MB)            ====> optional ***
     |   `-- anacha/ng:1.7.1-alpine (108 MB)                 ====> this project ***
     |       |
     |      (+)-- anacha/ng-testplat:1.7.1-alpine (285 MB)   ====> for ng e2e and unit testing
