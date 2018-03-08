@@ -8,7 +8,7 @@ used in Gitlab CI/CD.
 ```text
 +-- alpine:3.6 (3.962 MB)                                   ====> official image
     |
-    +-- node:9.6.1-alpine (64.64 MB)                        ====> official image
+    +-- node:9.7.1-alpine (64.64 MB)                        ====> official image
     |   |
     |   +-- anacha/ng:6.0.0-beta.4-alpine (108 MB)            ====> optional ***
     |   `-- anacha/ng:1.7.3-alpine (108 MB)                 ====> this project ***
