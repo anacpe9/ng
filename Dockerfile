@@ -26,5 +26,6 @@ RUN apk add --no-cache --update \
     npm prune && \
     npm upgrade && \
     node --version && \
-    npm --version && \
-    ng --version
+    # npm --version && \
+    # ng --version
+    npm --version
