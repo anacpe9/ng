@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
         node-zopfli \
         node-sass \
         sass-loader \
-        @angular/cli@1.6.0-rc.2 && \
+        @angular/cli@1.7.4 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
@@ -26,6 +26,6 @@ RUN apk add --no-cache --update \
     npm prune && \
     npm upgrade && \
     node --version && \
-    # npm --version && \
-    # ng --version
-    npm --version
+    npm --version && \
+    ng --version
+    # npm --version
