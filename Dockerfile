@@ -1,4 +1,4 @@
-FROM node:9.10.1-alpine
+FROM node:10.1.0-alpine
 
 LABEL maintainer="Anucha Nualsi <ana.cpe9@gmail.com>"
 
@@ -15,7 +15,7 @@ RUN apk add --no-cache --update \
         node-zopfli \
         node-sass \
         sass-loader \
-        @angular/cli@1.7.4 && \
+        @angular/cli@6.0.3 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
