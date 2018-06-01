@@ -9,8 +9,10 @@ RUN apk add --no-cache --update \
         make \
         git \
         g++ && \
-    npm config set cache /.npm/ --global && \
-    npm install -g --unsafe-perm \
+    npm config --global set cache /.npm/  && \
+    OLD_NODE_USER="$(npm config --global get user)" && \
+    npm config --global set user root && \
+    npm install --global \
         node-gyp \
         node-zopfli \
         node-sass \
@@ -19,13 +21,14 @@ RUN apk add --no-cache --update \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
+    npm config --global set user "$OLD_NODE_USER" && \
+    npm config --global get user && \
+    npm list --global --depth=0 && \
+    unset OLD_NODE_USER && \
     apk del git && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/* && \
     rm -rf /var/cache/apk/* && \
-    npm prune && \
-    npm upgrade && \
     node --version && \
     npm --version && \
     ng --version
-    # npm --version
