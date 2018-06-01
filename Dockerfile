@@ -10,21 +10,20 @@ RUN apk add --no-cache --update \
         git \
         g++ && \
     npm config --global set cache /.npm/  && \
-    OLD_NODE_USER="$(npm config --global get user)" && \
-    npm config --global set user root && \
-    npm install --global \
+    # OLD_NODE_USER="$(npm config --global get user)" && \
+    # npm config --global set user root && \
+    # npm install --global \
+    npm install -g --unsafe-perm \
         node-gyp \
-        node-zopfli \
         node-sass \
-        sass-loader \
         @angular/cli@6.1.0-beta.0 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
-    npm config --global set user "$OLD_NODE_USER" && \
-    npm config --global get user && \
+    # npm config --global set user "$OLD_NODE_USER" && \
+    # npm config --global get user && \
     npm list --global --depth=0 && \
-    unset OLD_NODE_USER && \
+    # unset OLD_NODE_USER && \
     apk del git && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/* && \
@@ -32,3 +31,4 @@ RUN apk add --no-cache --update \
     node --version && \
     npm --version && \
     ng --version
+    
