@@ -15,7 +15,7 @@ stages:
 
 before_script:
   - docker info
-  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  - echo "$CI_BUILD_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
 
 Docker build:
   stage: build-and-deploy
@@ -25,8 +25,8 @@ Docker build:
   only:
     - master
   script:
-  #- TMPTAG="6.1.0-beta.0-alpine"
-  - TMPTAG="6.0.7-alpine"
+  - TMPTAG="6.1.0-beta.2-alpine"
+  #- TMPTAG="6.0.7-alpine"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
@@ -37,9 +37,11 @@ Docker build:
   - docker images
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:latest
-  - docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD $DOCKERHUB_REGISTRY
+  - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
+  - docker logout "$CI_REGISTRY"
+  - docker logout "$DOCKERHUB_REGISTRY"
 
 .job_sshpushtemplate: &sshpush
   image: anacha/openssh-client

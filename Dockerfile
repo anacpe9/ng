@@ -1,4 +1,4 @@
-FROM node:10.3.0-alpine
+FROM node:10.4.0-alpine
 
 LABEL maintainer="Anucha Nualsi <ana.cpe9@gmail.com>"
 
@@ -16,7 +16,7 @@ RUN apk add --no-cache --update \
     npm install -g --unsafe-perm \
         node-gyp \
         node-sass \
-        @angular/cli@6.0.7 && \
+        @angular/cli@6.1.0-beta.2 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
