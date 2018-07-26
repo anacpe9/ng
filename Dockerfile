@@ -1,22 +1,22 @@
-FROM node:10.4.0-alpine
+FROM node:10.7.0-alpine
 
 LABEL maintainer="Anucha Nualsi <ana.cpe9@gmail.com>"
 
 VOLUME /.npm/
 
 RUN apk add --no-cache --update \
-        python \
-        make \
-        git \
-        g++ && \
+    python \
+    make \
+    git \
+    g++ && \
     npm config --global set cache /.npm/  && \
     # OLD_NODE_USER="$(npm config --global get user)" && \
     # npm config --global set user root && \
     # npm install --global \
     npm install -g --unsafe-perm \
-        node-gyp \
-        node-sass \
-        @angular/cli@6.0.8 && \
+    node-gyp \
+    node-sass \
+    @angular/cli@6.1.0 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
@@ -31,4 +31,3 @@ RUN apk add --no-cache --update \
     node --version && \
     npm --version && \
     ng --version
-    
