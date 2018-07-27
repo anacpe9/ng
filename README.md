@@ -11,15 +11,16 @@ used in Gitlab CI/CD.
     +-- node:10.7.0-alpine (64.64 MB)                       ====> official image
     |   |
     |   +-- anacha/ng:6.1.0-beta.2-alpine (108 MB)          ====> optional ***
-    |   `-- anacha/ng:6.1.0-alpine (108 MB)                 ====> this project ***
+    |   `-- anacha/ng:6.1.1-alpine (108 MB)                 ====> this project ***
     |       |
-    |      (+)-- anacha/ng-testplat:6.1.0-alpine (285 MB)   ====> for ng e2e and unit testing
+    |      (+)-- anacha/ng-testplat:6.1.1-alpine (285 MB)   ====> for ng e2e and unit testing
     |       |
-    `------ anacha/e2e-testplat:61-alpine2 (181 MB)         ====> (Optional for other projects)
+    `------ anacha/e2e-testplat:64-alpine (181 MB)          ====> (Optional for other projects)
 ```
 
 | Image           | base-0 image      | base-1 image |
 | --------------- | ----------------- | ------------ |
+| ng:6.1.1-alpine | node:10.7.0-alpine| alpine:3.8   |
 | ng:6.1.0-alpine | node:10.7.0-alpine| alpine:3.8   |
 | ng:6.0.8-alpine | node:10.4.0-alpine| alpine:3.7   |
 | ng:6.0.7-alpine | node:10.3.0-alpine| alpine:3.7   |
