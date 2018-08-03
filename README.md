@@ -1,4 +1,4 @@
-# this project was forked from _*[cha/nodetestplat](https://lab.er.co.th/cha/nodetestplat)*_ project
+# this project was forked from __**[cha/nodetestplat](https://lab.er.co.th/cha/nodetestplat)**__ project
 
 Angular cli - alpine base, for development process.
 used in Gitlab CI/CD.
@@ -6,20 +6,21 @@ used in Gitlab CI/CD.
 ## docker-image dependencies graph
 
 ```text
-+-- alpine:3.8 (3.962 MB)                                   ====> official image
++-- alpine:3.8 (4.41 MB)                                    ====> official image
     |
-    +-- node:10.7.0-alpine (64.64 MB)                       ====> official image
+    +-- node:10.8.0-alpine (71.40 MB)                       ====> official image
     |   |
-    |   +-- anacha/ng:6.1.0-beta.2-alpine (108 MB)          ====> optional ***
-    |   `-- anacha/ng:6.1.1-alpine (108 MB)                 ====> this project ***
+    |   +-- anacha/ng:6.2.0-beta.0-alpine (331 MB)          ====> optional ***
+    |   `-- anacha/ng:6.1.2-alpine (331 MB)                 ====> this project ***
     |       |
-    |      (+)-- anacha/ng-testplat:6.1.1-alpine (285 MB)   ====> for ng e2e and unit testing
+    |      (+)-- anacha/ng-testplat:6.1.2-alpine (331 MB)   ====> for ng e2e and unit testing
     |       |
-    `------ anacha/e2e-testplat:64-alpine (181 MB)          ====> (Optional for other projects)
+    `------ anacha/e2e-testplat:64-alpine (201 MB)          ====> (Optional for other projects)
 ```
 
 | Image           | base-0 image      | base-1 image |
 | --------------- | ----------------- | ------------ |
+| ng:6.1.2-alpine | node:10.8.0-alpine| alpine:3.8   |
 | ng:6.1.1-alpine | node:10.7.0-alpine| alpine:3.8   |
 | ng:6.1.0-alpine | node:10.7.0-alpine| alpine:3.8   |
 | ng:6.0.8-alpine | node:10.4.0-alpine| alpine:3.7   |

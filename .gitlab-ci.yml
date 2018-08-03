@@ -22,11 +22,11 @@ Docker build:
   variables:
     DOCKERHUB_REGISTRY: "https://index.docker.io/v1/"
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/ng"
+    TMPTAG: "6.2.0-beta.0-alpine"
+    # TMPTAG: "6.1.2-alpine"
   only:
     - master
   script:
-  #- TMPTAG="6.1.0-beta.2-alpine"
-  - TMPTAG="6.1.1-alpine"
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
