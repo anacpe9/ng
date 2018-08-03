@@ -13,7 +13,8 @@ RUN apk add --no-cache --update \
     # OLD_NODE_USER="$(npm config --global get user)" && \
     # npm config --global set user root && \
     # npm install --global \
-    npm install -g --unsafe-perm \
+    npm config set unsafe-perm true && \
+    npm install --global --unsafe-perm \
     node-gyp \
     node-sass \
     @angular/cli@6.2.0-beta.0 && \
