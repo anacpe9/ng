@@ -8,12 +8,12 @@ used in Gitlab CI/CD.
 ```text
 +-- alpine:3.8 (4.41 MB)                                    ====> official image
     |
-    +-- node:10.8.0-alpine (71.40 MB)                       ====> official image
+    +-- node:10.8.0-alpine (70.30 MB)                       ====> official image
     |   |
-    |   +-- anacha/ng:6.2.0-beta.0-alpine (331 MB)          ====> optional ***
-    |   `-- anacha/ng:6.1.2-alpine (331 MB)                 ====> this project ***
+    |   +-- anacha/ng:6.2.0-beta.0-alpine (330 MB)          ====> optional ***
+    |   `-- anacha/ng:6.1.2-alpine (330 MB)                 ====> this project ***
     |       |
-    |      (+)-- anacha/ng-testplat:6.1.2-alpine (331 MB)   ====> for ng e2e and unit testing
+    |      (+)-- anacha/ng-testplat:6.1.2-alpine (330 MB)   ====> for ng e2e and unit testing
     |       |
     `------ anacha/e2e-testplat:64-alpine (201 MB)          ====> (Optional for other projects)
 ```
