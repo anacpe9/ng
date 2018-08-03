@@ -9,11 +9,11 @@ RUN apk add --no-cache --update \
     make \
     git \
     g++ && \
-    npm config --global set cache /.npm/  && \
     # OLD_NODE_USER="$(npm config --global get user)" && \
     # npm config --global set user root && \
     # npm install --global \
-    # npm config set unsafe-perm true && \
+    npm config set unsafe-perm true && \
+    npm config --global set cache /.npm/  && \
     npm install --global --unsafe-perm \
     node-gyp \
     node-sass \
