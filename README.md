@@ -8,48 +8,49 @@ used in Gitlab CI/CD.
 ```text
 +-- alpine:3.8 (4.41 MB)                                    ====> official image
     |
-    +-- node:10.9.0-alpine (70.30 MB)                       ====> official image
+    +-- node:10.10.0-alpine (70.30 MB)                      ====> official image
     |   |
-    |   +-- anacha/ng:6.2.0-rc.0-alpine (330 MB)            ====> optional ***
-    |   `-- anacha/ng:6.1.5-alpine (330 MB)                 ====> this project ***
+    |   +-- anacha/ng:7.0.0-beta.2-alpine (330 MB)          ====> optional ***
+    |   `-- anacha/ng:6.2.0-alpine (330 MB)                 ====> this project ***
     |       |
-    |      (+)-- anacha/ng-testplat:6.1.5-alpine (330 MB)   ====> for ng e2e and unit testing
+    |      (+)-- anacha/ng-testplat:6.2.0-alpine (330 MB)   ====> for ng e2e and unit testing
     |       |
     `------ anacha/e2e-testplat:68-alpine (201 MB)          ====> (Optional for other projects)
 ```
 
-| Image           | base-0 image      | base-1 image |
-| --------------- | ----------------- | ------------ |
-| ng:6.1.5-alpine | node:10.9.0-alpine| alpine:3.8   |
-| ng:6.1.4-alpine | node:10.9.0-alpine| alpine:3.8   |
-| ng:6.1.3-alpine | node:10.8.0-alpine| alpine:3.8   |
-| ng:6.1.2-alpine | node:10.8.0-alpine| alpine:3.8   |
-| ng:6.1.1-alpine | node:10.7.0-alpine| alpine:3.8   |
-| ng:6.1.0-alpine | node:10.7.0-alpine| alpine:3.8   |
-| ng:6.0.8-alpine | node:10.4.0-alpine| alpine:3.7   |
-| ng:6.0.7-alpine | node:10.3.0-alpine| alpine:3.7   |
-| ng:6.0.5-alpine | node:10.2.1-alpine| alpine:3.7   |
-| ng:6.0.3-alpine | node:10.1.0-alpine| alpine:3.7   |
-| ng:1.7.4-alpine | node:9.10.1-alpine| alpine:3.6   |
-| ng:1.7.4-alpine | node:9.10.1-alpine| alpine:3.6   |
-| ng:1.7.3-alpine | node:9.7.1-alpine | alpine:3.6   |
-| ng:1.7.2-alpine | node:9.6.1-alpine | alpine:3.6   |
-| ng:1.7.1-alpine | node:9.6.1-alpine | alpine:3.6   |
-| ng:1.7.0-alpine | node:9.5.0-alpine | alpine:3.6   |
-| ng:1.6.8-alpine | node:9.5.0-alpine | alpine:3.6   |
-| ng:1.6.7-alpine | node:9.5.0-alpine | alpine:3.6   |
-| ng:1.6.6-alpine | node:9.4.0-alpine | alpine:3.6   |
-| ng:1.6.5-alpine | node:9.4.0-alpine | alpine:3.6   |
-| ng:1.6.4-alpine | node:9.4.0-alpine | alpine:3.6   |
-| ng:1.6.3-alpine | node:9.3.0-alpine | alpine:3.6   |
-| ng:1.6.2-alpine | node:9.3.0-alpine | alpine:3.6   |
-| ng:1.6.1-alpine | node:9.3.0-alpine | alpine:3.6   |
-| ng:1.6.0-alpine | node:9.2.0-alpine | alpine:3.6   |
-| ng:1.5.5-alpine | node:9.2.0-alpine | alpine:3.6   |
-| ng:1.5.4-alpine | node:9.2.0-alpine | alpine:3.6   |
-| ng:1.5.3-alpine | node:9.2.0-alpine | alpine:3.6   |
-| ng:1.5.2-alpine | node:9.2.0-alpine | alpine:3.6   |
-| ng:1.5.0-alpine | node:9.0.0-alpine | alpine:3.6   |
+| Image           | base-0 image        | base-1 image |
+| --------------- | ------------------- | ------------ |
+| ng:6.2.1-alpine | node:10.10.0-alpine | alpine:3.8   |
+| ng:6.1.5-alpine | node:10.9.0-alpine  | alpine:3.8   |
+| ng:6.1.4-alpine | node:10.9.0-alpine  | alpine:3.8   |
+| ng:6.1.3-alpine | node:10.8.0-alpine  | alpine:3.8   |
+| ng:6.1.2-alpine | node:10.8.0-alpine  | alpine:3.8   |
+| ng:6.1.1-alpine | node:10.7.0-alpine  | alpine:3.8   |
+| ng:6.1.0-alpine | node:10.7.0-alpine  | alpine:3.8   |
+| ng:6.0.8-alpine | node:10.4.0-alpine  | alpine:3.7   |
+| ng:6.0.7-alpine | node:10.3.0-alpine  | alpine:3.7   |
+| ng:6.0.5-alpine | node:10.2.1-alpine  | alpine:3.7   |
+| ng:6.0.3-alpine | node:10.1.0-alpine  | alpine:3.7   |
+| ng:1.7.4-alpine | node:9.10.1-alpine  | alpine:3.6   |
+| ng:1.7.4-alpine | node:9.10.1-alpine  | alpine:3.6   |
+| ng:1.7.3-alpine | node:9.7.1-alpine   | alpine:3.6   |
+| ng:1.7.2-alpine | node:9.6.1-alpine   | alpine:3.6   |
+| ng:1.7.1-alpine | node:9.6.1-alpine   | alpine:3.6   |
+| ng:1.7.0-alpine | node:9.5.0-alpine   | alpine:3.6   |
+| ng:1.6.8-alpine | node:9.5.0-alpine   | alpine:3.6   |
+| ng:1.6.7-alpine | node:9.5.0-alpine   | alpine:3.6   |
+| ng:1.6.6-alpine | node:9.4.0-alpine   | alpine:3.6   |
+| ng:1.6.5-alpine | node:9.4.0-alpine   | alpine:3.6   |
+| ng:1.6.4-alpine | node:9.4.0-alpine   | alpine:3.6   |
+| ng:1.6.3-alpine | node:9.3.0-alpine   | alpine:3.6   |
+| ng:1.6.2-alpine | node:9.3.0-alpine   | alpine:3.6   |
+| ng:1.6.1-alpine | node:9.3.0-alpine   | alpine:3.6   |
+| ng:1.6.0-alpine | node:9.2.0-alpine   | alpine:3.6   |
+| ng:1.5.5-alpine | node:9.2.0-alpine   | alpine:3.6   |
+| ng:1.5.4-alpine | node:9.2.0-alpine   | alpine:3.6   |
+| ng:1.5.3-alpine | node:9.2.0-alpine   | alpine:3.6   |
+| ng:1.5.2-alpine | node:9.2.0-alpine   | alpine:3.6   |
+| ng:1.5.0-alpine | node:9.0.0-alpine   | alpine:3.6   |
 
 ```text
 // with @angular/cli@1.5.*
