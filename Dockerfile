@@ -17,8 +17,8 @@ RUN apk add --no-cache --update \
     npm install --global --unsafe-perm \
     node-gyp \
     node-sass \
-    @angular/cli@7.0.0-rc.1 && \
-    # @angular/cli@6.2.3 && \
+    # @angular/cli@7.0.0-rc.1 && \
+    @angular/cli@6.2.4 && \
     npm cache verify && \
     npm cache clean --force && \
     npm cache verify && \
