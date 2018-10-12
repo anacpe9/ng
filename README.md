@@ -8,9 +8,9 @@ used in Gitlab CI/CD.
 ```text
 +-- alpine:3.8 (4.41 MB)                                    ====> official image
     |
-    +-- node:10.11.0-alpine (70.30 MB)                      ====> official image
+    +-- node:10.12.0-alpine (70.30 MB)                      ====> official image
     |   |
-    |   +-- anacha/ng:7.0.0-rc.1  -alpine (330 MB)          ====> optional ***
+    |   +-- anacha/ng:7.0.0-rc.3  -alpine (330 MB)          ====> optional ***
     |   `-- anacha/ng:6.2.4-alpine (330 MB)                 ====> this project ***
     |       |
     |      (+)-- anacha/ng-testplat:6.2.4-alpine (330 MB)   ====> for ng e2e and unit testing
