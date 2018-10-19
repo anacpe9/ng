@@ -23,7 +23,7 @@ Docker build:
     DOCKERHUB_REGISTRY: "https://index.docker.io/v1/"
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/ng"
     # TMPTAG: "7.0.0-rc.3-alpine"
-    TMPTAG: "6.2.5-alpine"
+    TMPTAG: "7.0.1-alpine"
   only:
     - master
   script:
