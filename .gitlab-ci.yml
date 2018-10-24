@@ -30,16 +30,12 @@ Docker build:
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
-    # -t $CI_REGISTRY_IMAGE:latest
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
-    # -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
     .
   - docker images
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
-  # - docker push $CI_REGISTRY_IMAGE:latest
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
-  # - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
   - docker logout "$CI_REGISTRY"
   - docker logout "$DOCKERHUB_REGISTRY"
 
