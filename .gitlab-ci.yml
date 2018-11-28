@@ -23,8 +23,8 @@ Docker build:
     DOCKERHUB_REGISTRY: "https://index.docker.io/v1/"
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/ng"
     # TMPTAG: "7.0.0-rc.3-alpine"
-    #TMPTAG: "7.0.6-alpine"
-    TMPTAG: "6.2.8-alpine"
+    TMPTAG: "7.1.0-alpine"
+    #TMPTAG: "6.2.8-alpine"
   only:
     - master
   script:
@@ -33,12 +33,14 @@ Docker build:
     -t $CI_REGISTRY_IMAGE:$TMPTAG
     -t $CI_REGISTRY_IMAGE:latest
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+    -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
     .
   - docker images
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:latest
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+  - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
   - docker logout "$CI_REGISTRY"
   - docker logout "$DOCKERHUB_REGISTRY"
 
