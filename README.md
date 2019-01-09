@@ -20,6 +20,7 @@ used in Gitlab CI/CD.
 
 | Image           | base-0 image        | base-1 image |
 | --------------- | ------------------- | ------------ |
+| ng:6.2.9-alpine | node:11.6.0-alpine  | alpine:3.8   |
 | ng:7.1.4-alpine | node:11.5.0-alpine  | alpine:3.8   |
 | ng:7.1.3-alpine | node:11.4.0-alpine  | alpine:3.8   |
 | ng:7.1.2-alpine | node:11.3.0-alpine  | alpine:3.8   |
