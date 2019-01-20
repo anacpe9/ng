@@ -21,6 +21,7 @@ used in Gitlab CI/CD.
 | Image           | base-0 image        | base-1 image |
 | --------------- | ------------------- | ------------ |
 | ng:7.2.2-alpine | node:11.7.0-alpine  | alpine:3.8   |
+| ng:7.2.1-alpine | node:11.6.0-alpine  | alpine:3.8   |
 | ng:7.2.0-alpine | node:11.6.0-alpine  | alpine:3.8   |
 | ng:6.2.9-alpine | node:11.6.0-alpine  | alpine:3.8   |
 | ng:7.1.4-alpine | node:11.5.0-alpine  | alpine:3.8   |
