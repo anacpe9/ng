@@ -8,18 +8,19 @@ used in Gitlab CI/CD.
 ```text
 +-- alpine:3.9 (4.41 MB)                                    ====> official image
     |
-    +-- node:11.11.0-alpine (70.30 MB)                      ====> official image
+    +-- node:11.12.0-alpine (70.30 MB)                      ====> official image
     |   |
     |   +-- anacha/ng:7.2.0-beta.1  -alpine (330 MB)          ====> optional ***
-    |   `-- anacha/ng:7.3.5-alpine (330 MB)                 ====> this project ***
+    |   `-- anacha/ng:7.3.6-alpine (330 MB)                 ====> this project ***
     |       |
-    |      (+)-- anacha/ng-testplat:7.3.5-alpine (330 MB)   ====> for ng e2e and unit testing
+    |      (+)-- anacha/ng-testplat:7.3.6-alpine (330 MB)   ====> for ng e2e and unit testing
     |       |
     `------ anacha/e2e-testplat:68-alpine (201 MB)          ====> (Optional for other projects)
 ```
 
 | Image           | base-0 image        | base-1 image |
 | --------------- | ------------------- | ------------ |
+| ng:7.3.6-alpine | node:11.12.0-alpine | alpine:3.9   |
 | ng:7.3.5-alpine | node:11.11.0-alpine | alpine:3.9   |
 | ng:7.3.4-alpine | node:11.10.1-alpine | alpine:3.9   |
 | ng:7.3.3-alpine | node:11.10.0-alpine | alpine:3.9   |
