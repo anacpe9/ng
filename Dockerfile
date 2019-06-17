@@ -18,7 +18,7 @@ RUN apk add --no-cache --update \
     node-gyp \
     node-sass \
     # @angular/cli@8.0.0-rc.3 && \
-    @angular/cli@8.0.2 && \
+    @angular/cli@8.0.3 && \
     #@angular/cli@6.2.9 && \
     npm cache verify && \
     npm cache clean --force && \
